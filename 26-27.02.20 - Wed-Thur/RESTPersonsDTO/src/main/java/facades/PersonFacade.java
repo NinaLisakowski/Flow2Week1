@@ -2,6 +2,7 @@ package facades;
 
 import dto.PersonDTO;
 import dto.PersonsDTO;
+import entities.Address;
 import entities.Person;
 import java.util.Date;
 import java.util.List;
@@ -17,7 +18,7 @@ public class PersonFacade implements IPersonFacade {
 
     private static PersonFacade instance;
     private static EntityManagerFactory emf;//= Persistence.createEntityManagerFactory("pu");
-    //sEntityManager em = emf.createEntityManager();
+    //EntityManager em = emf.createEntityManager();
 
     //Private Constructor to ensure Singleton
     private PersonFacade() {
@@ -75,6 +76,7 @@ public class PersonFacade implements IPersonFacade {
             if (p != null) {
             em.getTransaction().begin();
             em.remove(p);
+            em.remove(p.getAddress());
             em.getTransaction().commit();
             return new PersonDTO(p);
             } else {
@@ -123,6 +125,11 @@ public class PersonFacade implements IPersonFacade {
             pers.setLastName(p.getlName());
             pers.setPhone(p.getPhone());
             pers.setLastEdited(new Date());
+            
+            //I dont know if this works
+            pers.setAddress((Address)(Object)p.getStreet());
+            pers.setAddress((Address)(Object)p.getZip());
+            pers.setAddress((Address)(Object)p.getCity());
             em.getTransaction().commit();
             return new PersonDTO(pers);
         } finally {

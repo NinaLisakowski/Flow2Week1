@@ -2,12 +2,12 @@ package entities;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 
 @Entity
@@ -25,6 +25,8 @@ public class Person implements Serializable {
     private Date created;
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date lastEdited;
+    @OneToOne
+    private Address address;
 
     public Person() {
     }
@@ -85,50 +87,17 @@ public class Person implements Serializable {
         this.lastEdited = lastEdited;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 3;
-        hash = 23 * hash + Objects.hashCode(this.id);
-        hash = 23 * hash + Objects.hashCode(this.firstName);
-        hash = 23 * hash + Objects.hashCode(this.lastName);
-        hash = 23 * hash + Objects.hashCode(this.phone);
-        hash = 23 * hash + Objects.hashCode(this.lastEdited);
-        return hash;
+    public Address getAddress() {
+        return address;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Person other = (Person) obj;
-        if (!Objects.equals(this.firstName, other.firstName)) {
-            return false;
-        }
-        if (!Objects.equals(this.lastName, other.lastName)) {
-            return false;
-        }
-        if (!Objects.equals(this.phone, other.phone)) {
-            return false;
-        }
-        if (!Objects.equals(this.id, other.id)) {
-            return false;
-        }
-        if (!Objects.equals(this.lastEdited, other.lastEdited)) {
-            return false;
-        }
-        return true;
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     @Override
     public String toString() {
-        return "Person{" + "id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", phone=" + phone + ", lastEdited=" + lastEdited + '}';
+        return "Person{" + "id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", phone=" + phone + ", created=" + created + ", lastEdited=" + lastEdited + ", address=" + address + '}';
     }
-
+    
 }
