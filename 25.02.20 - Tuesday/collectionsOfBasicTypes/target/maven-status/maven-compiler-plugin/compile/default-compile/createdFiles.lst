@@ -1,3 +1,8 @@
-entities/Customer.class
 entities/Customer_.class
+entities2/Customer2_.class
+entities2/Address2.class
+entities2/Address2_.class
+entities2/Tester2.class
 entities/Tester.class
+entities2/Customer2.class
+entities/Customer.class
