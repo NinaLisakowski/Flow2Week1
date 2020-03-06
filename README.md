@@ -2,7 +2,7 @@
 
 ## 25.02.2020 - Tuesday
 - The "Collections of basic types" exercise in the JPA,relations document is done. I struggled for several days with it not making a proper conection to the database.
-- The "JPA Entity Mappings" exercise in the JPA,relations documt is not completely done. I had a lot of difficulty with this exercise because somehow there isn't a proper connection to the database. It does not add anything to it. I have even fixed the things that did NOT work in the program above, but it still does NOT work the way it should.
+- The "JPA Entity Mappings" exercise in the JPA,relations documt is not completely done. I had a lot of difficulty with this exercise because somehow there isn't a proper connection to the database. It does not add anything to it. I have even fixed the things that did NOT work in the program above, but it still does NOT work the way it should. I then tried to do the exercise in the "Collections of basic types"-project, but that did not always work as well. Sometimes there was a connection and sometimes there wasn't. So the right place to look for this one is here --> 25.02.20 - Tuesday/collectionsOfBasicTypes/src/main/java/entities2/. It is in the entities2, because it is part two of the tuesday exercise.
 
 ## 26-27.02.2020 - Wednesday-Thursday
 The document REST, Error Handling, Rest Assured
